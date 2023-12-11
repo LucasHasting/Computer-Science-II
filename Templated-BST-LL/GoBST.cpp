@@ -1,6 +1,6 @@
 //************************************************************
 // P6: Binary Search Tree Fun
-// Author: Janet T. Jenkins
+// Author: Janet T. Jenkins, Lucas Hasting
 // Use this file as a starting file for Project 6
 // You will need to add the appropriate functionality
 // to the BST class in order to complete this work.
@@ -8,99 +8,43 @@
 
 #include "GoBST.h"
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 BST<T>::BST(){
     root = nullptr;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 BST<T>::~BST(){
     Deallocate(root);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 BST<T>::BST(BST<T>& right){
     Copy(right);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::operator=(BST right){
     Deallocate(root);
     Copy(right);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::operator<(BST right){
     return Count() <= right.Count();
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::operator>(BST right){
     return Count() >= right.Count();
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class U>
 ostream& operator<<(ostream& os, const BST<U>& right){
     right.PrintInOrder();
     return os;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::InsertHelp(T e, BNode<T>*& b){
     bool success = false;
@@ -128,25 +72,11 @@ bool BST<T>::InsertHelp(T e, BNode<T>*& b){
     return success;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::Insert(T e){
     return InsertHelp(e, root);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::Deallocate(BNode<T>*& b){
     if (b != nullptr){
@@ -156,13 +86,6 @@ void BST<T>::Deallocate(BNode<T>*& b){
     }
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::CopyHelp(BNode<T>*& b1, BNode<T>*& b2){
     if (b2 != nullptr){
@@ -173,25 +96,11 @@ void BST<T>::CopyHelp(BNode<T>*& b1, BNode<T>*& b2){
     }
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::Copy(BST<T>& right){
     CopyHelp(root, right.root);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintInOrderHelp(BNode<T>* b)const{
     if (b != nullptr){
@@ -201,13 +110,6 @@ void BST<T>::PrintInOrderHelp(BNode<T>* b)const{
     }
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintInOrder()const{
 	cout << "<\t";
@@ -217,13 +119,6 @@ void BST<T>::PrintInOrder()const{
     cout << ">";
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintPreOrderHelp(BNode<T>* b)const{
     if (b != nullptr){
@@ -233,13 +128,6 @@ void BST<T>::PrintPreOrderHelp(BNode<T>* b)const{
     }
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintPreOrder()const{
 	cout << "<\t";
@@ -247,13 +135,6 @@ void BST<T>::PrintPreOrder()const{
     cout << ">" << endl;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintPostOrderHelp(BNode<T>* b)const{
     if (b != nullptr){
@@ -263,13 +144,6 @@ void BST<T>::PrintPostOrderHelp(BNode<T>* b)const{
     }
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 void BST<T>::PrintPostOrder()const{
 	cout << "<\t";
@@ -277,13 +151,6 @@ void BST<T>::PrintPostOrder()const{
     cout << ">" << endl;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::SearchHelp(BNode<T>* b, T item)const{
     bool success = false;
@@ -303,25 +170,11 @@ bool BST<T>::SearchHelp(BNode<T>* b, T item)const{
     return success;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::Search(T item)const{
     return SearchHelp(root, item);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::RemoveHelp(BNode<T>*& b, T item){
     bool success = false;
@@ -434,25 +287,11 @@ bool BST<T>::RemoveHelp(BNode<T>*& b, T item){
     return success;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 bool BST<T>::Remove(T item){
     return RemoveHelp(root, item);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 BNode<T>* BST<T>::GetMinHelp(BNode<T>* b)const{
     if (b->left != nullptr)
@@ -460,13 +299,6 @@ BNode<T>* BST<T>::GetMinHelp(BNode<T>* b)const{
     return b;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::GetMin()const{
     if (root == nullptr)
@@ -474,13 +306,6 @@ int BST<T>::GetMin()const{
     return GetMinHelp(root)->data;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 BNode<T>* BST<T>::GetMaxHelp(BNode<T>* b)const{
     if (b->right != nullptr)
@@ -488,13 +313,6 @@ BNode<T>* BST<T>::GetMaxHelp(BNode<T>* b)const{
     return b;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::GetMax()const{
     if (root == nullptr)
@@ -502,13 +320,6 @@ int BST<T>::GetMax()const{
     return GetMaxHelp(root)->data;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::GetAverageHelp(BNode<T>* b)const{
     int total = 0;
@@ -520,25 +331,11 @@ int BST<T>::GetAverageHelp(BNode<T>* b)const{
     return total;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 double BST<T>::GetAverage()const{
     return GetAverageHelp(root) / double(Count());
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::CountHelper(BNode<T>* b)const{
 	if (b != nullptr)
@@ -547,25 +344,11 @@ int BST<T>::CountHelper(BNode<T>* b)const{
 		return 0;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::Count()const{
 	return CountHelper(root);
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::CountHeightHelper(BNode<T>* b)const{
 	if (b != nullptr){
@@ -575,13 +358,6 @@ int BST<T>::CountHeightHelper(BNode<T>* b)const{
 		return 0;
 }
 
-/*
-Method Name:
-Method Description:
-Return Value:
-Incoming Parameters:
-Outgoing Parameters:
-*/
 template <class T>
 int BST<T>::CountHeight()const{
 	return CountHeightHelper(root);

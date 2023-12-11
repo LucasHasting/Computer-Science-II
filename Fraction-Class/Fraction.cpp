@@ -1,6 +1,6 @@
 /*
 Course: CS 255
-Name: Lucas Hasting and James Palmer
+Name: Lucas Hasting 
 Date: 9/13/2022
 Description: Adds fraction ability to c++
 */
@@ -27,13 +27,13 @@ public:
     friend ostream& operator<<(ostream& os, const Fraction& right);
     friend istream& operator>>(istream& is, Fraction& right);
 
-    //relational operator friend functions by James Palmer
-    friend bool operator==(const Fraction& left, const Fraction& right);
-    friend bool operator!=(const Fraction& left, const Fraction& right);
-    friend bool operator<(const Fraction& left, const Fraction& right);
-    friend bool operator<=(const Fraction& left, const Fraction& right);
-    friend bool operator>(const Fraction& left, const Fraction& right);
-    friend bool operator>=(const Fraction& left, const Fraction& right);
+    //relational operators by Lucas Hasting
+    bool operator>      (const Fraction& right);
+    bool operator<      (const Fraction& right);
+    bool operator==     (const Fraction& right);
+    bool operator!=     (const Fraction& right);
+    bool operator>=     (const Fraction& right);
+    bool operator<=     (const Fraction& right);
 };
 
 //constructors-Done In Class
@@ -98,35 +98,41 @@ istream& operator>>(istream& is, Fraction& right)
     return is;
 }
 
-//relational operator friend functions-James Palmer
-bool operator==(const Fraction& left, const Fraction& right)
+//relational operator methods-Lucas Hasting
+bool Fraction::operator<(const Fraction& right)
 {
-    return ((left.num * right.den) == (left.den * right.num));
+     int val1 = num * right.den;
+     int val2 = right.num * den;
+     return(val1 < val2);
 }
 
-bool operator!=(const Fraction& left, const Fraction& right)
+bool Fraction::operator>(const Fraction& right)
 {
-    return !(left == right);
+     int val1 = num * right.den;
+     int val2 = right.num * den;
+     return(val1 > val2);
 }
 
-bool operator<(const Fraction& left, const Fraction& right)
+bool Fraction::operator==(const Fraction& right)
 {
-    return ((left.num * right.den) < (left.den * right.num));
+     int val1 = num * right.den;
+     int val2 = right.num * den;
+     return(val1 == val2);
 }
 
-bool operator<=(const Fraction& left, const Fraction& right)
+bool Fraction::operator!=(const Fraction& right)
 {
-    return ((left < right) || (left == right));
+     return !(*this == right);
 }
 
-bool operator>(const Fraction& left, const Fraction& right)
+bool Fraction::operator>=(const Fraction& right)
 {
-    return ((left.num * right.den) > (left.den * right.num));
+     return(*this > right || *this == right);
 }
 
-bool operator>=(const Fraction& left, const Fraction& right)
+bool Fraction::operator<=(const Fraction& right)
 {
-    return ((left > right) || (left == right));
+     return(*this < right || *this == right);
 }
 
 int main() //main driver program by Lucas Hasting
