@@ -1,2 +1,2 @@
 # Computer-Science-II
-This repository holds all programs made in Computer Science I.  
+This repository holds all programs made in Computer Science II.  
