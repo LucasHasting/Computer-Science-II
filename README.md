@@ -1,5 +1,5 @@
 # Computer-Science-II
-This repository holds all programs made in my Computer Science II class. This class introduces object oriented programming so some files include objects and are not meant to be executed. Some projects will need to be viewed to determine the file to be compiled by g++.
+This repository holds all programs made in my Computer Science II class. This class introduces object oriented programming so some files include objects and are included in the driver. Some projects will need to be viewed to determine the file to be compiled by g++.
 
 # C++ Installation and Usage
 
