@@ -9,7 +9,7 @@ g++ for [Windows](https://sourceforge.net/projects/mingw/), don't forget to add 
 
 g++ can be installed on Linux using your favorite package manager.
 
-Next, download the repo by downloading the [ZIP](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github) or by using [GIT](https://docs.github.com/en/get-started/using-git/about-git).
+Next, download the repo by downloading the [ZIP](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github) or by using [git](https://docs.github.com/en/get-started/using-git/about-git).
 
 ### Run from the command line
 1. Find the location of the files you want to execute
